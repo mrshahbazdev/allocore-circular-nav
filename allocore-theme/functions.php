@@ -11,14 +11,14 @@ require_once get_template_directory() . '/inc/custom-css.php';
  * Enqueue Scripts and Styles
  */
 function allocore_theme_scripts() {
-    // Enqueue Google Fonts (Dynamic based on settings would be better, but keeping generic set for now)
+    // Enqueue Google Fonts
     wp_enqueue_style('allocore-fonts', 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap', array(), null);
 
     // Enqueue Main Styles
     wp_enqueue_style('allocore-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
 
     // Enqueue Theme Styles
-    wp_enqueue_style('allocore-style', get_stylesheet_uri(), array('allocore-main-style'), '1.0.0');
+    wp_enqueue_style('allocore-style', get_stylesheet_uri(), array('allocore-main-style'), '1.1.0');
 
     wp_enqueue_script('jquery');
 }
@@ -55,7 +55,7 @@ function allocore_widgets_init() {
         'description'   => esc_html__('Add widgets here.', 'allocore-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s mb-6">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: \'Rajdhani\', sans-serif;">',
+        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">',
         'after_title'   => '</h4>',
     ));
 
@@ -65,7 +65,7 @@ function allocore_widgets_init() {
         'description'   => esc_html__('Add widgets here.', 'allocore-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s mb-6">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: \'Rajdhani\', sans-serif;">',
+        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">',
         'after_title'   => '</h4>',
     ));
 
@@ -75,7 +75,7 @@ function allocore_widgets_init() {
         'description'   => esc_html__('Add widgets here.', 'allocore-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s mb-6">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: \'Rajdhani\', sans-serif;">',
+        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">',
         'after_title'   => '</h4>',
     ));
 
@@ -85,7 +85,7 @@ function allocore_widgets_init() {
         'description'   => esc_html__('Add widgets here.', 'allocore-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s mb-6">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: \'Rajdhani\', sans-serif;">',
+        'before_title'  => '<h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">',
         'after_title'   => '</h4>',
     ));
 
@@ -95,11 +95,20 @@ function allocore_widgets_init() {
         'description'   => esc_html__('Add widgets here.', 'allocore-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s mb-8 p-6 bg-card border border-border rounded-xl">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="font-bold text-xl mb-4" style="font-family: \'Rajdhani\', sans-serif;">',
+        'before_title'  => '<h3 class="font-bold text-xl mb-4" style="font-family: var(--font-heading);">',
         'after_title'   => '</h3>',
     ));
 }
 add_action('widgets_init', 'allocore_widgets_init');
+
+/**
+ * Filter Nav Menu Item Classes (Optional, handled via CSS now)
+ */
+function allocore_nav_menu_css_class( $classes, $item, $args ) {
+    // Add custom classes to LI elements if needed
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'allocore_nav_menu_css_class', 10, 3 );
 
 /**
  * Basic Customizer Settings (Legacy/Simple)
