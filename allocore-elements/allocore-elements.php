@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Allocore Elements
  * Description: Custom Elementor widgets for Allocore theme.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Allocore
  * Text Domain: allocore-elements
  */
@@ -19,7 +19,7 @@ final class Allocore_Elements {
     /**
      * Plugin Version
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.0';
 
     /**
      * Minimum Elementor Version
@@ -155,39 +155,67 @@ final class Allocore_Elements {
      * Init Widgets
      */
     public function init_widgets($widgets_manager) {
-        // Core
+        // --- Core ---
         require_once(__DIR__ . '/widgets/hero-section.php');
         require_once(__DIR__ . '/widgets/circular-nav.php');
         require_once(__DIR__ . '/widgets/services-section.php');
         require_once(__DIR__ . '/widgets/contact-section.php');
 
-        // Template
+        // --- Template ---
         require_once(__DIR__ . '/widgets/section-heading.php');
         require_once(__DIR__ . '/widgets/accordion.php');
         require_once(__DIR__ . '/widgets/testimonial-card.php');
         require_once(__DIR__ . '/widgets/feature-card.php');
 
-        // Interactive
+        // --- Interactive ---
         require_once(__DIR__ . '/widgets/stats-counter.php');
         require_once(__DIR__ . '/widgets/gradient-button.php');
         require_once(__DIR__ . '/widgets/dual-button.php');
         require_once(__DIR__ . '/widgets/process-step.php');
         require_once(__DIR__ . '/widgets/icon-box.php');
 
-        // Business
+        // --- Business ---
         require_once(__DIR__ . '/widgets/pricing-table.php');
         require_once(__DIR__ . '/widgets/cta-box.php');
         require_once(__DIR__ . '/widgets/logo-grid.php');
         require_once(__DIR__ . '/widgets/info-list.php');
         require_once(__DIR__ . '/widgets/team-member.php');
 
-        // Utility
+        // --- Utility ---
         require_once(__DIR__ . '/widgets/divider.php');
         require_once(__DIR__ . '/widgets/tabs.php');
         require_once(__DIR__ . '/widgets/image-box.php');
         require_once(__DIR__ . '/widgets/video-popup.php');
 
-        // Register
+        // --- NEW BATCH 1: Content ---
+        require_once(__DIR__ . '/widgets/blockquote.php');
+        require_once(__DIR__ . '/widgets/flip-box.php');
+        require_once(__DIR__ . '/widgets/content-toggle.php');
+        require_once(__DIR__ . '/widgets/timeline.php');
+        require_once(__DIR__ . '/widgets/progress-bar.php');
+
+        // --- NEW BATCH 2: Marketing ---
+        require_once(__DIR__ . '/widgets/business-hours.php');
+        require_once(__DIR__ . '/widgets/countdown.php');
+        require_once(__DIR__ . '/widgets/social-icons.php');
+        require_once(__DIR__ . '/widgets/alert-box.php');
+        require_once(__DIR__ . '/widgets/radial-progress.php');
+
+        // --- NEW BATCH 3: Visuals ---
+        require_once(__DIR__ . '/widgets/gallery-grid.php');
+        require_once(__DIR__ . '/widgets/animated-headline.php');
+        require_once(__DIR__ . '/widgets/number-box.php');
+        require_once(__DIR__ . '/widgets/scroll-button.php');
+        require_once(__DIR__ . '/widgets/breadcrumbs.php');
+
+        // --- NEW BATCH 4: Forms/Utility ---
+        require_once(__DIR__ . '/widgets/search-form.php');
+        require_once(__DIR__ . '/widgets/login-form.php');
+        require_once(__DIR__ . '/widgets/table-of-contents.php');
+        require_once(__DIR__ . '/widgets/step-flow.php');
+        require_once(__DIR__ . '/widgets/dual-heading.php');
+
+        // === REGISTRATION ===
         $widgets_manager->register(new \Allocore_Hero_Widget());
         $widgets_manager->register(new \Allocore_Circular_Nav_Widget());
         $widgets_manager->register(new \Allocore_Services_Widget());
@@ -214,6 +242,31 @@ final class Allocore_Elements {
         $widgets_manager->register(new \Allocore_Tabs_Widget());
         $widgets_manager->register(new \Allocore_Image_Box_Widget());
         $widgets_manager->register(new \Allocore_Video_Popup_Widget());
+
+        // New Registrations
+        $widgets_manager->register(new \Allocore_Blockquote_Widget());
+        $widgets_manager->register(new \Allocore_Flip_Box_Widget());
+        $widgets_manager->register(new \Allocore_Content_Toggle_Widget());
+        $widgets_manager->register(new \Allocore_Timeline_Widget());
+        $widgets_manager->register(new \Allocore_Progress_Bar_Widget());
+
+        $widgets_manager->register(new \Allocore_Business_Hours_Widget());
+        $widgets_manager->register(new \Allocore_Countdown_Widget());
+        $widgets_manager->register(new \Allocore_Social_Icons_Widget());
+        $widgets_manager->register(new \Allocore_Alert_Box_Widget());
+        $widgets_manager->register(new \Allocore_Radial_Progress_Widget());
+
+        $widgets_manager->register(new \Allocore_Gallery_Grid_Widget());
+        $widgets_manager->register(new \Allocore_Animated_Headline_Widget());
+        $widgets_manager->register(new \Allocore_Number_Box_Widget());
+        $widgets_manager->register(new \Allocore_Scroll_Button_Widget());
+        $widgets_manager->register(new \Allocore_Breadcrumbs_Widget());
+
+        $widgets_manager->register(new \Allocore_Search_Form_Widget());
+        $widgets_manager->register(new \Allocore_Login_Form_Widget());
+        $widgets_manager->register(new \Allocore_Table_Of_Contents_Widget());
+        $widgets_manager->register(new \Allocore_Step_Flow_Widget());
+        $widgets_manager->register(new \Allocore_Dual_Heading_Widget());
     }
 
     /**
@@ -224,6 +277,15 @@ final class Allocore_Elements {
         wp_register_script(
             'allocore-circular-nav',
             plugins_url('assets/js/circular-nav.js', __FILE__),
+            ['jquery'],
+            self::VERSION,
+            true
+        );
+
+        // Enqueue Main Widgets Script
+        wp_enqueue_script(
+            'allocore-widgets-js',
+            plugins_url('assets/js/allocore-widgets.js', __FILE__),
             ['jquery'],
             self::VERSION,
             true
