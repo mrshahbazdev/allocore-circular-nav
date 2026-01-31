@@ -4,13 +4,13 @@ Theme URI: https://allocore.de
 Author: Allocore
 Author URI: https://allocore.de
 Description: A custom WordPress theme for Allocore based on the React design.
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: allocore-theme
 */
 
-/* --- Critical Responsive Helpers (Missing from main.css build) --- */
+/* --- Critical Responsive Helpers --- */
 @media (min-width: 768px) {
     .md\:hidden {
         display: none !important;
@@ -23,17 +23,22 @@ Text Domain: allocore-theme
     }
 }
 
-/* --- Menu Styling Fixes --- */
+/* --- Menu Styling --- */
 /* Target standard WordPress menu output */
 .menu-item a {
     font-size: 0.875rem; /* text-sm */
     font-weight: 500; /* font-medium */
-    color: var(--muted-foreground, #6b7280);
+    /* Color handled via Custom CSS to support overrides */
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
     text-decoration: none;
     font-family: var(--font-body, 'Work Sans', sans-serif);
+}
+
+/* Fallback/Default if customizer not loaded */
+.menu-item a:not([style]) {
+    color: var(--muted-foreground, #6b7280);
 }
 
 .menu-item a:hover {
