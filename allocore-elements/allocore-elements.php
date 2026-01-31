@@ -155,15 +155,65 @@ final class Allocore_Elements {
      * Init Widgets
      */
     public function init_widgets($widgets_manager) {
+        // Core
         require_once(__DIR__ . '/widgets/hero-section.php');
         require_once(__DIR__ . '/widgets/circular-nav.php');
         require_once(__DIR__ . '/widgets/services-section.php');
         require_once(__DIR__ . '/widgets/contact-section.php');
 
+        // Template
+        require_once(__DIR__ . '/widgets/section-heading.php');
+        require_once(__DIR__ . '/widgets/accordion.php');
+        require_once(__DIR__ . '/widgets/testimonial-card.php');
+        require_once(__DIR__ . '/widgets/feature-card.php');
+
+        // Interactive
+        require_once(__DIR__ . '/widgets/stats-counter.php');
+        require_once(__DIR__ . '/widgets/gradient-button.php');
+        require_once(__DIR__ . '/widgets/dual-button.php');
+        require_once(__DIR__ . '/widgets/process-step.php');
+        require_once(__DIR__ . '/widgets/icon-box.php');
+
+        // Business
+        require_once(__DIR__ . '/widgets/pricing-table.php');
+        require_once(__DIR__ . '/widgets/cta-box.php');
+        require_once(__DIR__ . '/widgets/logo-grid.php');
+        require_once(__DIR__ . '/widgets/info-list.php');
+        require_once(__DIR__ . '/widgets/team-member.php');
+
+        // Utility
+        require_once(__DIR__ . '/widgets/divider.php');
+        require_once(__DIR__ . '/widgets/tabs.php');
+        require_once(__DIR__ . '/widgets/image-box.php');
+        require_once(__DIR__ . '/widgets/video-popup.php');
+
+        // Register
         $widgets_manager->register(new \Allocore_Hero_Widget());
         $widgets_manager->register(new \Allocore_Circular_Nav_Widget());
         $widgets_manager->register(new \Allocore_Services_Widget());
         $widgets_manager->register(new \Allocore_Contact_Widget());
+
+        $widgets_manager->register(new \Allocore_Section_Heading_Widget());
+        $widgets_manager->register(new \Allocore_Accordion_Widget());
+        $widgets_manager->register(new \Allocore_Testimonial_Card_Widget());
+        $widgets_manager->register(new \Allocore_Feature_Card_Widget());
+
+        $widgets_manager->register(new \Allocore_Stats_Counter_Widget());
+        $widgets_manager->register(new \Allocore_Gradient_Button_Widget());
+        $widgets_manager->register(new \Allocore_Dual_Button_Widget());
+        $widgets_manager->register(new \Allocore_Process_Step_Widget());
+        $widgets_manager->register(new \Allocore_Icon_Box_Widget());
+
+        $widgets_manager->register(new \Allocore_Pricing_Table_Widget());
+        $widgets_manager->register(new \Allocore_CTA_Box_Widget());
+        $widgets_manager->register(new \Allocore_Logo_Grid_Widget());
+        $widgets_manager->register(new \Allocore_Info_List_Widget());
+        $widgets_manager->register(new \Allocore_Team_Member_Widget());
+
+        $widgets_manager->register(new \Allocore_Divider_Widget());
+        $widgets_manager->register(new \Allocore_Tabs_Widget());
+        $widgets_manager->register(new \Allocore_Image_Box_Widget());
+        $widgets_manager->register(new \Allocore_Video_Popup_Widget());
     }
 
     /**
