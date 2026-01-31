@@ -3,12 +3,16 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+// Require Customizer Logic
+require_once get_template_directory() . '/inc/customizer.php';
+require_once get_template_directory() . '/inc/custom-css.php';
+
 /**
  * Enqueue Scripts and Styles
  */
 function allocore_theme_scripts() {
-    // Enqueue Google Fonts
-    wp_enqueue_style('allocore-fonts', 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap', array(), null);
+    // Enqueue Google Fonts (Dynamic based on settings would be better, but keeping generic set for now)
+    wp_enqueue_style('allocore-fonts', 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;700&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap', array(), null);
 
     // Enqueue Main Styles
     wp_enqueue_style('allocore-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
@@ -98,7 +102,8 @@ function allocore_widgets_init() {
 add_action('widgets_init', 'allocore_widgets_init');
 
 /**
- * Customizer Settings
+ * Basic Customizer Settings (Legacy/Simple)
+ * Advanced settings are in inc/customizer.php
  */
 function allocore_customize_register($wp_customize) {
     // Header CTA Section
