@@ -56,10 +56,45 @@ jQuery(document).ready(function($) {
         });
     }
 
+    // --- Off Canvas ---
+    function initOffCanvas($scope) {
+        const $trigger = $scope.find('.allocore-off-canvas-trigger');
+        const targetId = $trigger.data('target');
+        const $panel = $(targetId);
+        const $content = $panel.find('.allocore-off-canvas-content');
+        const position = $content.data('position');
+
+        $trigger.on('click', function(e) {
+            e.preventDefault();
+            $panel.removeClass('invisible opacity-0');
+            if (position === 'left') {
+                $content.removeClass('-translate-x-full');
+            } else {
+                $content.removeClass('translate-x-full');
+            }
+        });
+
+        function closePanel() {
+            if (position === 'left') {
+                $content.addClass('-translate-x-full');
+            } else {
+                $content.addClass('translate-x-full');
+            }
+            setTimeout(() => {
+                $panel.addClass('invisible opacity-0');
+            }, 300);
+        }
+
+        $panel.find('.allocore-off-canvas-close, .allocore-off-canvas-overlay').on('click', function() {
+            closePanel();
+        });
+    }
+
     // --- Elementor Hooks ---
     $(window).on('elementor/frontend/init', function() {
         elementorFrontend.hooks.addAction('frontend/element_ready/allocore_content_toggle.default', initContentToggle);
         elementorFrontend.hooks.addAction('frontend/element_ready/allocore_countdown.default', initCountdown);
         elementorFrontend.hooks.addAction('frontend/element_ready/allocore_alert_box.default', initAlertBox);
+        elementorFrontend.hooks.addAction('frontend/element_ready/allocore_off_canvas.default', initOffCanvas);
     });
 });
