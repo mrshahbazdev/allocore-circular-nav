@@ -4,8 +4,50 @@ Theme URI: https://allocore.de
 Author: Allocore
 Author URI: https://allocore.de
 Description: A custom WordPress theme for Allocore based on the React design.
-Version: 1.0.0
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: allocore-theme
 */
+
+/* --- Critical Responsive Helpers (Missing from main.css build) --- */
+@media (min-width: 768px) {
+    .md\:hidden {
+        display: none !important;
+    }
+    .md\:flex {
+        display: flex !important;
+    }
+    .md\:block {
+        display: block !important;
+    }
+}
+
+/* --- Menu Styling Fixes --- */
+/* Target standard WordPress menu output */
+.menu-item a {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: var(--muted-foreground, #6b7280);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    text-decoration: none;
+    font-family: var(--font-body, 'Work Sans', sans-serif);
+}
+
+.menu-item a:hover {
+    color: var(--primary-color, #FF8C00);
+}
+
+/* Mobile Menu Specifics */
+#allocore-mobile-menu .menu-item a {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: var(--foreground, #1A1A1A);
+    font-family: var(--font-heading, 'Rajdhani', sans-serif);
+}
+
+#allocore-mobile-menu .menu-item a:hover {
+    color: var(--primary-color, #FF8C00);
+}

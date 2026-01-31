@@ -20,13 +20,11 @@
         $nav_container_class = 'flex flex-col items-center justify-center py-4 space-y-4';
         $nav_menu_class = 'hidden md:flex items-center gap-8 justify-center w-full';
     } elseif ($header_layout === 'split') {
-        // Complex logic for split menu (Logo in center) usually requires two menu locations or JS splitting.
-        // Simplified approach: Logo Center, Menu Left/Right via absolute positioning or grid.
         $nav_container_class = 'grid grid-cols-3 items-center h-16 md:h-20';
         $logo_class = 'justify-self-center';
-        $nav_menu_class = 'hidden md:flex items-center gap-8 justify-self-start'; // Only one side for now
+        $nav_menu_class = 'hidden md:flex items-center gap-8 justify-self-start';
     } elseif ($header_layout === 'minimal') {
-        $nav_menu_class = 'hidden'; // Always hidden, rely on mobile menu overlay
+        $nav_menu_class = 'hidden';
     }
 ?>
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-border" style="/* Dynamic BG applied via Customizer CSS */">
@@ -63,8 +61,15 @@
                         'container'      => false,
                         'menu_class'     => 'flex items-center gap-8',
                         'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'item_class'     => 'text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline',
                     ));
+                } else {
+                    // Fallback Navigation
+                    ?>
+                    <a href="#methode" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Methode</a>
+                    <a href="#leistungen" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Leistungen</a>
+                    <a href="#ueber-uns" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Über uns</a>
+                    <a href="#kontakt" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Kontakt</a>
+                    <?php
                 }
                 ?>
             </nav>
@@ -97,16 +102,23 @@
     <button class="absolute top-6 right-6 p-2 text-foreground" id="allocore-mobile-menu-close">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
     </button>
-    <nav class="text-center space-y-6">
+    <nav class="text-center space-y-6 flex flex-col items-center">
         <?php
         if (has_nav_menu('primary')) {
             wp_nav_menu(array(
                 'theme_location' => 'primary',
                 'container'      => false,
-                'menu_class'     => 'flex flex-col items-center gap-6',
+                'menu_class'     => 'flex flex-col items-center gap-6 p-0 m-0',
                 'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                'item_class'     => 'text-2xl font-bold text-foreground hover:text-primary transition-colors',
             ));
+        } else {
+            // Fallback Mobile Menu
+            ?>
+            <a href="#methode" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Methode</a>
+            <a href="#leistungen" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Leistungen</a>
+            <a href="#ueber-uns" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Über uns</a>
+            <a href="#kontakt" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Kontakt</a>
+            <?php
         }
         ?>
     </nav>
