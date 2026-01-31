@@ -215,6 +215,24 @@ final class Allocore_Elements {
         require_once(__DIR__ . '/widgets/step-flow.php');
         require_once(__DIR__ . '/widgets/dual-heading.php');
 
+        // --- NEW BATCH 5: Image Based Widgets ---
+        require_once(__DIR__ . '/widgets/philosophy-section.php');
+        require_once(__DIR__ . '/widgets/impact-stats.php');
+        require_once(__DIR__ . '/widgets/success-stories.php');
+        require_once(__DIR__ . '/widgets/challenges-section.php');
+
+        // --- NEW BATCH 6: Additional Unique Widgets ---
+        require_once(__DIR__ . '/widgets/comparison-table.php');
+        require_once(__DIR__ . '/widgets/price-list.php');
+        require_once(__DIR__ . '/widgets/device-mockup.php');
+        require_once(__DIR__ . '/widgets/off-canvas.php');
+        require_once(__DIR__ . '/widgets/image-hotspots.php');
+        require_once(__DIR__ . '/widgets/before-after-image.php');
+        require_once(__DIR__ . '/widgets/text-marquee.php');
+        require_once(__DIR__ . '/widgets/post-grid.php');
+        require_once(__DIR__ . '/widgets/portfolio-filter.php');
+        require_once(__DIR__ . '/widgets/typewriter-text.php');
+
         // === REGISTRATION ===
         $widgets_manager->register(new \Allocore_Hero_Widget());
         $widgets_manager->register(new \Allocore_Circular_Nav_Widget());
@@ -267,6 +285,24 @@ final class Allocore_Elements {
         $widgets_manager->register(new \Allocore_Table_Of_Contents_Widget());
         $widgets_manager->register(new \Allocore_Step_Flow_Widget());
         $widgets_manager->register(new \Allocore_Dual_Heading_Widget());
+
+        // New Batch 5
+        $widgets_manager->register(new \Allocore_Philosophy_Section_Widget());
+        $widgets_manager->register(new \Allocore_Impact_Stats_Widget());
+        $widgets_manager->register(new \Allocore_Success_Stories_Widget());
+        $widgets_manager->register(new \Allocore_Challenges_Section_Widget());
+
+        // New Batch 6
+        $widgets_manager->register(new \Allocore_Comparison_Table_Widget());
+        $widgets_manager->register(new \Allocore_Price_List_Widget());
+        $widgets_manager->register(new \Allocore_Device_Mockup_Widget());
+        $widgets_manager->register(new \Allocore_Off_Canvas_Widget());
+        $widgets_manager->register(new \Allocore_Image_Hotspots_Widget());
+        $widgets_manager->register(new \Allocore_Before_After_Widget());
+        $widgets_manager->register(new \Allocore_Text_Marquee_Widget());
+        $widgets_manager->register(new \Allocore_Post_Grid_Widget());
+        $widgets_manager->register(new \Allocore_Portfolio_Filter_Widget());
+        $widgets_manager->register(new \Allocore_Typewriter_Text_Widget());
     }
 
     /**
