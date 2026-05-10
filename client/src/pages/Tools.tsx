@@ -45,74 +45,84 @@ function ToolCard({ tool, index }: { tool: Tool; index: number }) {
   const Icon = tool.icon;
   return (
     <AnimatedSection delay={index * 80} animation="fade-up">
-      <div className="group bg-card h-full p-8 rounded-2xl border-2 border-border hover:border-[#FF8C00] transition-all duration-300 hover:shadow-2xl relative overflow-hidden flex flex-col">
-        <div
-          className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-50"
-          style={{
-            background: `linear-gradient(135deg, ${tool.color}10, transparent)`,
-          }}
-        />
-
-        <div className="flex items-start justify-between mb-6 relative z-10">
+      <Link href={`/tools/${tool.id}`}>
+        <div className="group bg-card h-full p-8 rounded-2xl border-2 border-border hover:border-[#FF8C00] transition-all duration-300 hover:shadow-2xl relative overflow-hidden flex flex-col cursor-pointer">
           <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300"
-            style={{ backgroundColor: `${tool.color}20` }}
-          >
-            <Icon className="w-7 h-7" style={{ color: tool.color }} />
-          </div>
-          <StatusBadge status={tool.status} />
-        </div>
+            className="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-50"
+            style={{
+              background: `linear-gradient(135deg, ${tool.color}10, transparent)`,
+            }}
+          />
 
-        <h3
-          className="text-2xl font-bold mb-2 leading-tight"
-          style={{ fontFamily: "Rajdhani, sans-serif" }}
-        >
-          {tool.name}
-        </h3>
-        <p
-          className="text-sm font-semibold mb-4"
-          style={{ color: tool.color, fontFamily: "Rajdhani, sans-serif" }}
-        >
-          {tool.tagline}
-        </p>
-        <p
-          className="text-muted-foreground mb-6 leading-relaxed text-sm"
-          style={{ fontFamily: "Work Sans, sans-serif" }}
-        >
-          {tool.description}
-        </p>
-
-        <div className="space-y-2 mb-6 flex-1">
-          {tool.features.map((feature, i) => (
-            <div key={i} className="flex items-start gap-2">
-              <Check
-                className="w-4 h-4 mt-0.5 flex-shrink-0"
-                style={{ color: tool.color }}
-              />
-              <span
-                className="text-sm text-muted-foreground"
-                style={{ fontFamily: "Work Sans, sans-serif" }}
-              >
-                {feature}
-              </span>
+          <div className="flex items-start justify-between mb-6 relative z-10">
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300"
+              style={{ backgroundColor: `${tool.color}20` }}
+            >
+              <Icon className="w-7 h-7" style={{ color: tool.color }} />
             </div>
-          ))}
-        </div>
+            <StatusBadge status={tool.status} />
+          </div>
 
-        <div className="pt-4 border-t border-border">
-          <div className="flex flex-wrap gap-1.5">
-            {tool.techStack.map((tech, i) => (
-              <span
-                key={i}
-                className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground"
-                style={{ fontFamily: "Work Sans, sans-serif" }}
-              >
-                {tech}
-              </span>
+          <h3
+            className="text-2xl font-bold mb-2 leading-tight"
+            style={{ fontFamily: "Rajdhani, sans-serif" }}
+          >
+            {tool.name}
+          </h3>
+          <p
+            className="text-sm font-semibold mb-4"
+            style={{ color: tool.color, fontFamily: "Rajdhani, sans-serif" }}
+          >
+            {tool.tagline}
+          </p>
+          <p
+            className="text-muted-foreground mb-6 leading-relaxed text-sm"
+            style={{ fontFamily: "Work Sans, sans-serif" }}
+          >
+            {tool.description}
+          </p>
+
+          <div className="space-y-2 mb-6 flex-1">
+            {tool.features.slice(0, 5).map((feature, i) => (
+              <div key={i} className="flex items-start gap-2">
+                <Check
+                  className="w-4 h-4 mt-0.5 flex-shrink-0"
+                  style={{ color: tool.color }}
+                />
+                <span
+                  className="text-sm text-muted-foreground"
+                  style={{ fontFamily: "Work Sans, sans-serif" }}
+                >
+                  {feature}
+                </span>
+              </div>
             ))}
+            {tool.features.length > 5 && (
+              <p className="text-xs font-semibold mt-2" style={{ color: tool.color, fontFamily: "Rajdhani, sans-serif" }}>
+                +{tool.features.length - 5} weitere Features →
+              </p>
+            )}
+          </div>
+
+          <div className="pt-4 border-t border-border flex items-center justify-between">
+            <div className="flex flex-wrap gap-1.5">
+              {tool.techStack.slice(0, 3).map((tech, i) => (
+                <span
+                  key={i}
+                  className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground"
+                  style={{ fontFamily: "Work Sans, sans-serif" }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <span className="text-xs font-bold group-hover:translate-x-1 transition-transform" style={{ color: tool.color, fontFamily: "Rajdhani, sans-serif" }}>
+              Details →
+            </span>
           </div>
         </div>
-      </div>
+      </Link>
     </AnimatedSection>
   );
 }
