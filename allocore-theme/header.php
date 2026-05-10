@@ -67,6 +67,8 @@
                     ?>
                     <a href="#methode" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Methode</a>
                     <a href="#leistungen" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Leistungen</a>
+                    <a href="/tools" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Tools</a>
+                    <a href="/pricing" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Preise</a>
                     <a href="#ueber-uns" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Über uns</a>
                     <a href="#kontakt" class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-body);">Kontakt</a>
                     <?php
@@ -116,6 +118,8 @@
             ?>
             <a href="#methode" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Methode</a>
             <a href="#leistungen" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Leistungen</a>
+            <a href="/tools" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Tools</a>
+            <a href="/pricing" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Preise</a>
             <a href="#ueber-uns" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Über uns</a>
             <a href="#kontakt" class="text-2xl font-bold text-foreground hover:text-primary transition-colors hover:no-underline" style="font-family: var(--font-heading);">Kontakt</a>
             <?php
