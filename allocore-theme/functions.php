@@ -18,7 +18,7 @@ function allocore_theme_scripts() {
     wp_enqueue_style('allocore-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
 
     // Enqueue Theme Styles
-    wp_enqueue_style('allocore-style', get_stylesheet_uri(), array('allocore-main-style'), '1.1.0');
+    wp_enqueue_style('allocore-style', get_stylesheet_uri(), array('allocore-main-style'), '2.0.0');
 
     wp_enqueue_script('jquery');
 }

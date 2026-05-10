@@ -44,19 +44,43 @@
 
                 <?php if ($footer_layout !== 'centered' || is_active_sidebar('footer-2')) : ?>
                 <div class="w-full">
-                    <?php if ( is_active_sidebar( 'footer-2' ) ) dynamic_sidebar( 'footer-2' ); ?>
+                    <?php if ( is_active_sidebar( 'footer-2' ) ) : dynamic_sidebar( 'footer-2' ); else : ?>
+                        <h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">Tools</h4>
+                        <ul class="space-y-3" style="list-style: none; padding: 0; margin: 0;">
+                            <li><a href="/tools" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Alle Tools</a></li>
+                            <li><a href="/tools/focusmatrix" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">FocusMatrix</a></li>
+                            <li><a href="/tools/leados" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">LeadOS</a></li>
+                            <li><a href="/tools/visionflow" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">VisionFlow</a></li>
+                            <li><a href="/tools/seostory" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">SEOStory</a></li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
 
                 <?php if (in_array($footer_layout, ['3-col', '4-col', 'centered'])) : ?>
                 <div class="w-full">
-                    <?php if ( is_active_sidebar( 'footer-3' ) ) dynamic_sidebar( 'footer-3' ); ?>
+                    <?php if ( is_active_sidebar( 'footer-3' ) ) : dynamic_sidebar( 'footer-3' ); else : ?>
+                        <h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">Bundles</h4>
+                        <ul class="space-y-3" style="list-style: none; padding: 0; margin: 0;">
+                            <li><a href="/pricing" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Preise & Bundles</a></li>
+                            <li><a href="/pricing#starter" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Starter — €499</a></li>
+                            <li><a href="/pricing#professional" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Professional — €999</a></li>
+                            <li><a href="/pricing#enterprise" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Enterprise — €2.499</a></li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
 
                 <?php if ($footer_layout === '4-col' || $footer_layout === 'centered') : ?>
                 <div class="w-full">
-                    <?php if ( is_active_sidebar( 'footer-4' ) ) dynamic_sidebar( 'footer-4' ); ?>
+                    <?php if ( is_active_sidebar( 'footer-4' ) ) : dynamic_sidebar( 'footer-4' ); else : ?>
+                        <h4 class="font-bold text-lg mb-6" style="font-family: var(--font-heading);">Kontakt</h4>
+                        <ul class="space-y-3" style="list-style: none; padding: 0; margin: 0;">
+                            <li><a href="#kontakt" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Kontakt aufnehmen</a></li>
+                            <li><a href="#ueber-uns" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Über uns</a></li>
+                            <li><a href="#methode" class="text-sm opacity-70 hover:opacity-100 transition-opacity hover:no-underline" style="font-family: var(--font-body);">Methode</a></li>
+                        </ul>
+                    <?php endif; ?>
                 </div>
                 <?php endif; ?>
             </div>

@@ -30,19 +30,53 @@ function allocore_output_custom_css() {
             --primary-color: <?php echo esc_attr($primary); ?>;
             --secondary-color: <?php echo esc_attr($secondary); ?>;
 
+            /* Derived Colors */
+            --muted-foreground: #6b7280;
+            --border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
             /* Fonts */
             --font-heading: '<?php echo esc_attr($font_heading); ?>', sans-serif;
             --font-body: '<?php echo esc_attr($font_body); ?>', sans-serif;
+
+            /* Spacing */
+            --section-padding: 5rem 0;
+            --container-max: 1200px;
+
+            /* Transitions */
+            --transition-default: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
             background-color: var(--background);
             color: var(--foreground);
             font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
+            line-height: 1.2;
+        }
+
+        /* --- Modern Smooth Scrolling --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Enhanced Selection --- */
+        ::selection {
+            background: <?php echo esc_attr($primary); ?>30;
+            color: <?php echo esc_attr($text); ?>;
+        }
+
+        /* --- Focus Ring --- */
+        :focus-visible {
+            outline: 2px solid <?php echo esc_attr($primary); ?>;
+            outline-offset: 2px;
         }
 
         /* --- Utility Overrides (Tailwind) --- */

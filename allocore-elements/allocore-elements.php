@@ -19,7 +19,7 @@ final class Allocore_Elements {
     /**
      * Plugin Version
      */
-    const VERSION = '1.1.0';
+    const VERSION = '2.0.0';
 
     /**
      * Minimum Elementor Version
@@ -233,6 +233,12 @@ final class Allocore_Elements {
         require_once(__DIR__ . '/widgets/portfolio-filter.php');
         require_once(__DIR__ . '/widgets/typewriter-text.php');
 
+        // --- NEW BATCH 7: Tools Ecosystem ---
+        require_once(__DIR__ . '/widgets/tools-showcase.php');
+        require_once(__DIR__ . '/widgets/tool-detail.php');
+        require_once(__DIR__ . '/widgets/pricing-bundles.php');
+        require_once(__DIR__ . '/widgets/tools-teaser.php');
+
         // === REGISTRATION ===
         $widgets_manager->register(new \Allocore_Hero_Widget());
         $widgets_manager->register(new \Allocore_Circular_Nav_Widget());
@@ -303,6 +309,12 @@ final class Allocore_Elements {
         $widgets_manager->register(new \Allocore_Post_Grid_Widget());
         $widgets_manager->register(new \Allocore_Portfolio_Filter_Widget());
         $widgets_manager->register(new \Allocore_Typewriter_Text_Widget());
+
+        // New Batch 7: Tools Ecosystem
+        $widgets_manager->register(new \Allocore_Tools_Showcase_Widget());
+        $widgets_manager->register(new \Allocore_Tool_Detail_Widget());
+        $widgets_manager->register(new \Allocore_Pricing_Bundles_Widget());
+        $widgets_manager->register(new \Allocore_Tools_Teaser_Widget());
     }
 
     /**
@@ -322,6 +334,23 @@ final class Allocore_Elements {
         wp_enqueue_script(
             'allocore-widgets-js',
             plugins_url('assets/js/allocore-widgets.js', __FILE__),
+            ['jquery'],
+            self::VERSION,
+            true
+        );
+
+        // Enqueue Tools Ecosystem CSS
+        wp_enqueue_style(
+            'allocore-tools-css',
+            plugins_url('assets/css/allocore-tools.css', __FILE__),
+            [],
+            self::VERSION
+        );
+
+        // Enqueue Tools Ecosystem JS
+        wp_enqueue_script(
+            'allocore-tools-js',
+            plugins_url('assets/js/allocore-tools.js', __FILE__),
             ['jquery'],
             self::VERSION,
             true
